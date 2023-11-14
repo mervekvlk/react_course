@@ -41,6 +41,11 @@ function App() {
     }
   );
 
+  const sepetBosalt=()=>{
+    setSeciliUrunler([]);
+    setToplamFiyat(0);
+  }
+
   const [nextId, setNextId] = useState(7);
 
   const urunEkle = () => {
@@ -56,9 +61,7 @@ function App() {
     });
   }
 
-  const sepetBosalt=()=>{
-    setSeciliUrunler([]);
-  }
+   
 
   return (
     <div className="App">
