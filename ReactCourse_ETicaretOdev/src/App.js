@@ -56,9 +56,13 @@ function App() {
     });
   }
 
+  const sepetBosalt=()=>{
+    setSeciliUrunler([]);
+  }
+
   return (
     <div className="App">
-      <Navi seciliUrunler={seciliUrunler} toplamFiyat={toplamFiyat} />
+      <Navi seciliUrunler={seciliUrunler} toplamFiyat={toplamFiyat} sepetBosalt={sepetBosalt} />
       <div className='row'>
         <div className="col-md-3">
           <Kategoriler kategoriler={kategoriler} />

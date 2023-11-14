@@ -11,11 +11,12 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  Button,
 } from 'reactstrap';
 
 import './App.css';
 
-function Navi({seciliUrunler, toplamFiyat}) {
+function Navi({ seciliUrunler, toplamFiyat, sepetBosalt }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -37,18 +38,26 @@ function Navi({seciliUrunler, toplamFiyat}) {
               <NavLink href="#">İletişim</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar className='ml-auto'>
-            <DropdownToggle nav caret>
+              <DropdownToggle nav caret>
                 Sepet
-            </DropdownToggle>
-            <DropdownMenu end className="text-right">
-                {seciliUrunler.map((item,id)=>
-                <DropdownItem key={id}>{item.ad} - {item.fiyat} TL</DropdownItem>
+              </DropdownToggle>
+              <DropdownMenu end className="text-right">
+                {seciliUrunler.map((item, id) =>
+                  <DropdownItem key={id}>{item.ad} - {item.fiyat} TL</DropdownItem>
                 )}
-                
-                
+
+
                 <DropdownItem divider />
                 <DropdownItem>Toplam Fiyat: {toplamFiyat} TL</DropdownItem>
-            </DropdownMenu>
+                <div>
+                  <Button
+                    onClick={()=>{sepetBosalt()}}
+                    color="warning"
+                  >
+                    Sepeti Sil
+                  </Button>
+                </div>
+              </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
         </Collapse>
@@ -57,4 +66,4 @@ function Navi({seciliUrunler, toplamFiyat}) {
   );
 }
 
-export default Navi;
+export default Navi;
